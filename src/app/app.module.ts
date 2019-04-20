@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
-// import { ToastrModule } from 'ngx-toastr'
+import { ToastrModule } from 'ngx-toastr'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -23,7 +23,7 @@ import { ComponentsModule } from './components/components.module';
   imports: [
     BrowserModule,
     AuthModule,  
-    // ToastrModule.forRoot(),
+    ToastrModule.forRoot(),
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,

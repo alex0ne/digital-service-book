@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 //import * as firebase from 'firebase';
-//import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { environment as env } from '../../../environments/environment';
 
 
 @Injectable({
@@ -12,7 +13,7 @@ export class AuthService {
 
   constructor(
 
-    //private toastr : ToastrService,
+    private toastr : ToastrService,
     private router : Router
   ) { }
 
@@ -22,6 +23,9 @@ export class AuthService {
       password: password,
       admin: false
     }
+
+    this.toastr.success('Signed Up', 'Success');
+    
 /*     firebase.auth()
     .createUserWithEmailAndPassword(email, password)
       .then((data) => {
