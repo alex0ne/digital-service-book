@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 // import { ExpiredTasksComponent } from './expired-tasks/expired-tasks.component';
 // import { HomeComponent } from './home/home.component';
 // import { TaskDetailsComponent } from './task-details/task-details.component';
-import { AuthGuard } from '../auth/auth.guard';
+import { AuthGuard } from '../core/guards/auth.guard';
 
 
 const routes : Routes = [
