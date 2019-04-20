@@ -1,3 +1,26 @@
-<p>
-  add-log works!
-</p>
+<form #form="ngForm" (ngSubmit)="create()">
+
+  <div class="form-group">
+    <label for="eventDate">Date</label>
+    <input type="date" class="form-control" name="eventDate" id="eventDate" placeholder="Enter event date (e.g. 10.02.2015)"
+    required
+    [(ngModel)]="bindingModel.eventDate"
+    >
+  
+  </div>
+  <div class="form-group">
+    <label for="eventType">Description</label>
+    <input type="text" class="form-control" name="eventType" id="eventType" placeholder="Enter eventType"
+    required
+    [(ngModel)]="bindingModel.eventType"
+    >
+  </div>
+  <div class="form-group">
+    <label for="millage">Millage</label>
+    <input type="number" class="form-control" name="millage" id="millage" placeholder="millage"
+    required
+    [(ngModel)]="bindingModel.millage"
+    >
+  </div>
+  <button class="btn btn-primary" [disabled]="form.invalid" type="submit">Create Task</button>
+</form>

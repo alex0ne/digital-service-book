@@ -6,8 +6,6 @@ import { ComponentsModule } from './components/components.module';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 import { AuthGuard } from './core/guards/auth.guard';
 
-
-
 const routes : Routes = [
     {path: '', pathMatch: 'full', component: WelcomePageComponent},
     { path: 'authentication', children: [
