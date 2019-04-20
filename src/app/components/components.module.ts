@@ -8,7 +8,9 @@ import { CommonModule } from '@angular/common';
 // import { EditTaskComponent } from './edit-task/edit-task.component';
 import { FormsModule } from '@angular/forms';
 import { ComponentsRouting } from './components-routing';
-// import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './home/home.component';
+import { ListLogsComponent } from './list-logs/list-logs.component';
+import { AddLogComponent } from './add-log/add-log.component';
 
 @NgModule({
   imports: [
@@ -21,7 +23,9 @@ import { ComponentsRouting } from './components-routing';
     // TaskDetailsComponent, 
     // ExpiredTasksComponent, 
     // CreateTaskComponent, 
-    // HomeComponent,
+    HomeComponent,
+    ListLogsComponent,
+    AddLogComponent, 
     // EditTaskComponent
   ]
 })

@@ -9,9 +9,9 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './components/auth/auth.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-// import { TokenInterceptor } from './interceptors/token.interceptor';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 import { ComponentsModule } from './components/components.module';
+import { TokenInterceptor } from './core/interceptors/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -31,11 +31,11 @@ import { ComponentsModule } from './components/components.module';
     ComponentsModule
   ],
   providers: [
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: TokenInterceptor,
-    //   multi: true
-    // }
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

@@ -15,10 +15,10 @@
         <a class="nav-link" routerLink="home">Home</a>
       </li>
       <li *ngIf="authService.isAuthenticated()" class="nav-item">
-        <a  class="nav-link" routerLink="components/list-tasks">Tasks </a>
+        <a  class="nav-link" routerLink="components/list-logs">My Vehicle </a>
       </li>
       <li *ngIf="authService.isAuthenticated()" class="nav-item">
-        <a class="nav-link" routerLink="components/create-task">Create Task</a>
+        <a class="nav-link" routerLink="components/add-log">Add Event</a>
       </li>
       
       <li *ngIf="!authService.isAuthenticated()" class="nav-item">

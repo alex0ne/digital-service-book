@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { environment as env } from '../../../environments/environment';
-
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -14,65 +14,52 @@ export class AuthService {
   constructor(
 
     private toastr : ToastrService,
-    private router : Router
+    private router : Router,
+    private http : HttpClient
   ) { }
 
   signUp(email: string, password : string) {
     const user = {
       username: email,
       password: password,
-      admin: false
     }
 
-    this.toastr.success('Signed Up', 'Success');
-    
-/*     firebase.auth()
-    .createUserWithEmailAndPassword(email, password)
-      .then((data) => {
-        this.toastr.success('Signed Up', 'Success');
-        this.router.navigate(['/authentication/signin']);
-        
-      })
-      .catch((err) => {
-        this.toastr.error(err.message, 'Warning');
-      }); */
+    this.http.post(`${env.BASE_URL}/user/${env.APP_KEY}`, user).toPromise().then(res => {
+      this.toastr.success('Signed Up', 'Success');
+      this.router.navigate(['/authentication/signin']);
+    }).catch(err => {
+      console.log(err);
+    })
+  }
+
+  saveUserInfo(res: Object) {
+    localStorage.setItem('username', res['username']);
+    localStorage.setItem('token', res['_kmd']['authtoken']);
+    localStorage.setItem('userId', res['_id']);
   }
 
   signIn(email : string, password : string) {
-/*     firebase.auth()
-      .signInWithEmailAndPassword(email, password)
-      .then((data) => {
-        firebase.auth()
-          .currentUser
-          .getIdToken()
-          .then((token : string) => {
-            this.token = token;
-          })
+    const user = {
+      username: email,
+      password: password,
+    }
 
-          this.router.navigate(['/components/home']);
-          this.toastr.success('Logged In', 'Success');
-      })
-      .catch((err) => {
-        this.toastr.error(err.message, 'Warning');
-      }); */
+    this.http.post(`${env.BASE_URL}/user/${env.APP_KEY}/login`, user).toPromise().then(res => {
+      this.token = localStorage.getItem('token');
+      this.toastr.success('Logged In', 'Success');
+      this.router.navigate(['/components/home']);
+    }).catch(err => {
+      console.log(err);
+    })
   }
 
   logout() {
-/*     firebase.auth().signOut()
-      .then(() => {
-        this.router.navigate(['/authentication/signin']);
-        this.token = null;
-      }); */
+    localStorage.clear();
+    this.token = null;
+    this.router.navigate(['/']);
   }
 
   getToken() {
-/*     firebase.auth()
-    .currentUser
-    .getIdToken()
-    .then((token : string) => {
-      this.token = token;
-    }) */
-
     return this.token;
   }
 
