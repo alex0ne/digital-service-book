@@ -14,7 +14,6 @@ import { Vehicle } from 'src/app/core/models/vehicle';
 export class MyVehicleComponent implements OnInit {
 
   vehicle: Vehicle;
-  id: string
 
   constructor(
     private vehicleService: VehicleService,
@@ -24,6 +23,7 @@ export class MyVehicleComponent implements OnInit {
   async ngOnInit() {
       await this.vehicleService.getMyVehiicle().then(res => {
         this.vehicle = res;
+        localStorage.setItem("vehicle", res.make)
       });            
   }
 

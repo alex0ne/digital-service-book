@@ -47,7 +47,7 @@ export class AuthService {
     this.http.post(`${env.BASE_URL}/user/${env.APP_KEY}/login`, user).toPromise().then(res => {
       this.token = localStorage.getItem('token');
       this.toastr.success('Logged In', 'Success');
-      this.router.navigate(['/components/home']);
+      this.router.navigate(['/components/my-vehicle']);
     }).catch(err => {
       console.log(err);
     })
@@ -61,6 +61,14 @@ export class AuthService {
 
   getToken() {
     return this.token;
+  }
+
+  hasVehicle(): boolean {
+    if(localStorage.getItem('vehicle')) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   isAuthenticated() : boolean {
