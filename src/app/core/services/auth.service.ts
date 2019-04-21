@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-//import * as firebase from 'firebase';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { environment as env } from '../../../environments/environment';

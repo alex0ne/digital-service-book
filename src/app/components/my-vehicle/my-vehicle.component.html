@@ -1,13 +1,23 @@
 <div *ngIf="vehicle">
-    <div class="jumbotron">
-      <img src="{{vehicle.imageUrl}}" width="100%" alt="Vehicle Image">
-      <hr class="my-4">
-      <p class="lead">Make: {{vehicle.make}}</p>
-      <p class="lead">Model: {{vehicle.model}}</p>
-      <p class="lead">Manufactured: {{vehicle.productionYear}}</p>
-      <p class="lead">Millage: {{vehicle.millage}}</p>
+  <div class="card mb-3" style="max-width: 720px;" id="car-info">
+    <div class="row no-gutters">
+      <div *ngIf="vehicle.imageUrl" class="col-md-7">
+        <img src="{{vehicle.imageUrl}}" class="card-img" alt="Vehicle Image" id="car-img">
+      </div>
+      <div *ngIf="!vehicle.imageUrl" class="col-md-7">
+        <img src="https://www.carsondemand.co.uk/public/images/placeholderCar.png" class="card-img" alt="Vehicle placeholder" id="car-img">
+      </div>
+      <div class="col-md-5">
+        <div class="card-body">
+          <h5 class="card-title">{{vehicle.make}}</h5>
+          <p class="card-text">Model: {{vehicle.model}}</p>
+          <p class="card-text">Millage: {{vehicle.millage}}</p>
+          <p class="card-text">Production Year: {{vehicle.productionYear}}</p>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 <div *ngIf="!vehicle">
-  <p>No Vehicle Info!</p>
+  <p>No vehicle found. <a routerLink="/add-vehicle">Please, add vehicle info!</a></p>
 </div>

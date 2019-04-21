@@ -17,14 +17,16 @@ export class MyVehicleComponent implements OnInit {
 
   constructor(
     private vehicleService: VehicleService,
-  ) {  }
+  ) { }
 
 
   async ngOnInit() {
-      await this.vehicleService.getMyVehiicle().then(res => {
+    await this.vehicleService.getMyVehiicle().then(res => {
+      if (res) {
         this.vehicle = res;
         localStorage.setItem("vehicle", res.make)
-      });            
+      }
+    });
   }
 
 }

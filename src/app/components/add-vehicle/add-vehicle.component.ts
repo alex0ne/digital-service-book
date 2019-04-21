@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { Vehicle } from 'src/app/core/models/vehicle';
 import { VehicleService } from 'src/app/core/services/vehicle.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-add-vehicle',
@@ -14,6 +15,7 @@ export class AddVehicleComponent implements OnInit {
   bindingModel : Vehicle
 
   constructor(
+    private authService: AuthService,
     private vehicleService: VehicleService,
     private toastr : ToastrService,
     private router : Router

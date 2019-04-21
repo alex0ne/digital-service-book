@@ -10,7 +10,7 @@
   </div>
   <div class="form-group">
     <label for="eventType">Description</label>
-    <input type="text" class="form-control" name="eventType" id="eventType" placeholder="Enter eventType"
+    <input type="text" class="form-control" name="eventType" id="eventType" placeholder="Enter event type and description..."
     required
     [(ngModel)]="bindingModel.eventType"
     >
@@ -22,5 +22,5 @@
     [(ngModel)]="bindingModel.millage"
     >
   </div>
-  <button class="btn btn-primary" [disabled]="form.invalid" type="submit">Create Task</button>
+  <button class="btn btn-primary" [disabled]="form.invalid" type="submit">Add Event</button>
 </form>

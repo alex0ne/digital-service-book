@@ -11,18 +11,18 @@
 <!--       <li class="nav-item">
         <a  class="nav-link" routerLink="">Home </a>
       </li> -->
-      <li *ngIf="authService.isAuthenticated() && authService.hasVehicle()" class="nav-item">
+      <li *ngIf="authService.isAuthenticated()" class="nav-item">
         <a  class="nav-link" routerLink="components/my-vehicle">My Vehicle </a>
       </li>
       <li *ngIf="authService.isAuthenticated()" class="nav-item">
         <a  class="nav-link" routerLink="components/list-logs">Service History </a>
       </li>
-      <li *ngIf="authService.isAuthenticated() && !authService.hasVehicle()" class="nav-item" >
+<!--       <li *ngIf="authService.isAuthenticated() && !authService.hasVehicle()" class="nav-item" >
         <a class="nav-link" routerLink="components/add-vehicle" >Add Vehicle</a>
-      </li>
-      <li *ngIf="authService.isAuthenticated()" class="nav-item">
+      </li> -->
+<!--       <li *ngIf="authService.isAuthenticated()" class="nav-item">
         <a class="nav-link" routerLink="components/add-log">Add Event</a>
-      </li>
+      </li> -->
       
       <li *ngIf="!authService.isAuthenticated()" class="nav-item">
         <a class="nav-link" routerLink="authentication/signin">Sign In</a>
@@ -31,7 +31,7 @@
         <a class="nav-link" routerLink="authentication/signup">Sign Up</a>
       </li>
       <li *ngIf="authService.isAuthenticated()" class="nav-item">
-        <a class="nav-link" (click)="logout()">Logout</a>
+        <a class="nav-link" style="cursor:pointer;" (click)="logout()">Logout</a>
       </li>
     </ul>
   </div>

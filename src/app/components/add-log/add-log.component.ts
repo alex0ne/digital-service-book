@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-import { EventLogModel } from '../../core/models/event-log';
+import { EventLog } from '../../core/models/event-log';
 import { CarHistoryService } from 'src/app/core/services/car-history.service';
 
 @Component({
@@ -11,14 +11,14 @@ import { CarHistoryService } from 'src/app/core/services/car-history.service';
 })
 export class AddLogComponent implements OnInit {
 
-  bindingModel : EventLogModel
+  bindingModel : EventLog
 
   constructor(
     private carHistoryService : CarHistoryService,
     private toastr : ToastrService,
     private router : Router
   ) {
-    this.bindingModel = new EventLogModel('', '', 0);
+    this.bindingModel = new EventLog('', '', 0);
   }
 
   create() {
