@@ -27,7 +27,8 @@ export class AuthService {
       this.toastr.success('Signed Up', 'Success');
       this.router.navigate(['/authentication/signin']);
     }).catch(err => {
-      console.log(err);
+      this.toastr.error(err.error.description, 'Error');
+      console.error(err);
     })
   }
 
@@ -48,6 +49,7 @@ export class AuthService {
       this.toastr.success('Logged In', 'Success');
       this.router.navigate(['/components/my-vehicle']);
     }).catch(err => {
+      this.toastr.error(err.error.description, 'Error');
       console.log(err);
     })
   }
