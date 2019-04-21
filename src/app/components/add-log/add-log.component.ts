@@ -24,7 +24,7 @@ export class AddLogComponent implements OnInit {
   create() {
     this.carHistoryService.addEvent(
       this.bindingModel).subscribe(() => {
-        this.toastr.success('Task created successfully!')
+        this.toastr.success('Maintenance log created successfully!')
         this.router.navigate(['/components/list-logs'])
       })
   }

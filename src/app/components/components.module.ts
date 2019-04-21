@@ -11,6 +11,8 @@ import { ComponentsRouting } from './components-routing';
 import { HomeComponent } from './home/home.component';
 import { ListLogsComponent } from './list-logs/list-logs.component';
 import { AddLogComponent } from './add-log/add-log.component';
+import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
+import { MyVehicleComponent } from './my-vehicle/my-vehicle.component';
 
 @NgModule({
   imports: [
@@ -25,7 +27,9 @@ import { AddLogComponent } from './add-log/add-log.component';
     // CreateTaskComponent, 
     HomeComponent,
     ListLogsComponent,
-    AddLogComponent, 
+    AddLogComponent,
+    AddVehicleComponent,
+    MyVehicleComponent, 
     // EditTaskComponent
   ]
 })

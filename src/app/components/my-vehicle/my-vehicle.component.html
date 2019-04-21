@@ -1,0 +1,10 @@
+<div *ngIf="vehicle">
+    <div class="jumbotron">
+      <img src="{{vehicle.imageUrl}}" width="100%" alt="Vehicle Image">
+      <hr class="my-4">
+      <p class="lead">Make: {{vehicle.make}}</p>
+      <p class="lead">Model: {{vehicle.model}}</p>
+      <p class="lead">Manufactured: {{vehicle.productionYear}}</p>
+      <p class="lead">Millage: {{vehicle.millage}}</p>
+    </div>
+</div>

@@ -8,12 +8,16 @@ import { AddLogComponent } from './add-log/add-log.component';
 import { HomeComponent } from './home/home.component';
 // import { TaskDetailsComponent } from './task-details/task-details.component';
 import { AuthGuard } from '../core/guards/auth.guard';
+import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
+import { MyVehicleComponent } from './my-vehicle/my-vehicle.component';
 
 
 const routes : Routes = [
     {path: 'home', component: HomeComponent, canActivate:[AuthGuard]},
     {path: 'list-logs', component: ListLogsComponent},
     {path: 'add-log', component: AddLogComponent},
+    {path: 'add-vehicle', component: AddVehicleComponent},
+    {path: 'my-vehicle', component: MyVehicleComponent},
     // {path: 'create-task', component: CreateTaskComponent},
     // {path: 'edit/:id', component: EditTaskComponent},
     // {path: 'expired-tasks', component: ExpiredTasksComponent},
