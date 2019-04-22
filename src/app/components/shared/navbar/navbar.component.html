@@ -28,10 +28,10 @@
       </li> -->
       
       <li *ngIf="!authService.isAuthenticated()" class="nav-item">
-        <a class="nav-link" routerLink="authentication/signin">Sign In</a>
+        <a class="nav-link" routerLink="authentication/signin">Login</a>
       </li>
       <li *ngIf="!authService.isAuthenticated()" class="nav-item">
-        <a class="nav-link" routerLink="authentication/signup">Sign Up</a>
+        <a class="nav-link" routerLink="authentication/signup">Register</a>
       </li>
       <li *ngIf="authService.isAuthenticated()" class="nav-item">
         <a class="nav-link" style="cursor:pointer;" (click)="logout()">Logout</a>
