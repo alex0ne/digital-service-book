@@ -14,18 +14,7 @@ export class CarHistoryService {
   constructor( private http : HttpClient ) { }
 
     listEvents() {
-      
-      // return await this.http.get<EventLogModel[]>(`${env.BASE_URL}/appdata/${env.APP_KEY}/ServiceLogs?query={"_acl.creator":"${localStorage.getItem('userId')}"}`)
-      // .toPromise().then((res) => { 
-      //   const ids = Object.keys(res);
-      //   const events : EventLogModel[] = [];
-      //   for (const event of res) {
-      //     events.push(new EventLogModel(event.eventDate, event.eventType, event.millage))
-          
-      //   }
-      //   console.log(events);
-      //   return events;
-      // })
+
       return this.http.get(`${env.BASE_URL}/appdata/${env.APP_KEY}/ServiceLogs?query={"_acl.creator":"${localStorage.getItem('userId')}"}`)
         .pipe(map((res: Response) => {
           const ids = Object.keys(res);
@@ -41,19 +30,6 @@ export class CarHistoryService {
         }));
       
     }
-    // listTasks() {
-    //     return this.http.get(`${baseUrl}.json`)
-    //   .pipe(map((res : Response) => {
-    //     const ids = Object.keys(res);
-    //     const tasks : ListTasks[] = [];
-    //     for (const id of ids) {
-    //       tasks.push(new ListTasks(id, res[id].name, 
-    //         res[id].description, res[id].deadline));
-    //     }
-
-    //     return tasks;
-    //   }));
-    // } 
 
     addEvent (body : EventLog) {
       console.log(body);

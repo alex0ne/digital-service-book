@@ -19,12 +19,20 @@ export class TokenInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
         if (req.url.endsWith(`/user/${env.APP_KEY}`) || req.url.endsWith('/login')) {
-           req = req.clone({
-               setHeaders: {
-                   'Authorization': `Basic ${btoa(`${env.APP_KEY}:${env.APP_SECRET}`)}`,
-                   'Content-Type': 'application/json'
-               }
-           })
+            if(req.method === 'GET') {
+                req = req.clone({
+                    setHeaders: {
+                        'Authorization': `Basic ${btoa(`${env.APP_KEY}:${env.MASTER_SECRET}`)}`,
+                    }
+                })                
+            } else {
+                req = req.clone({
+                    setHeaders: {
+                        'Authorization': `Basic ${btoa(`${env.APP_KEY}:${env.APP_SECRET}`)}`,
+                        'Content-Type': 'application/json'
+                    }
+                })
+            }
         } else {
             req = req.clone({
                 setHeaders: {
