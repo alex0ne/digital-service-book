@@ -9,20 +9,20 @@ import { MyVehicleComponent } from './my-vehicle/my-vehicle.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 
 
-const routes : Routes = [
-    {path: 'home', component: HomeComponent, canActivate:[AuthGuard]},
-    {path: 'list-logs', component: ListLogsComponent},
-    {path: 'add-log', component: AddLogComponent},
-    {path: 'add-vehicle', component: AddVehicleComponent},
-    {path: 'my-vehicle', component: MyVehicleComponent},
-    {path: 'admin', component: AdminPageComponent},
-    // {path: 'edit/:id', component: EditVehicleComponent},
+const routes: Routes = [
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'list-logs', component: ListLogsComponent },
+  { path: 'add-log', component: AddLogComponent },
+  { path: 'add-vehicle', component: AddVehicleComponent },
+  { path: 'my-vehicle', component: MyVehicleComponent },
+  { path: 'admin', component: AdminPageComponent },
+  // {path: 'edit/:id', component: EditVehicleComponent},
 ]
 
 @NgModule({
-    imports: [
-      RouterModule.forChild(routes)
-    ],
-    exports: [ RouterModule ]
-  })
-  export class ComponentsRouting {}
+  imports: [
+    RouterModule.forChild(routes)
+  ],
+  exports: [RouterModule]
+})
+export class ComponentsRouting { }

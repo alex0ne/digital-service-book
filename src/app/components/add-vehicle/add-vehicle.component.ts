@@ -15,7 +15,7 @@ export class AddVehicleComponent implements OnInit {
   bindingModel : Vehicle
 
   constructor(
-    private authService: AuthService,
+    public authService: AuthService,
     private vehicleService: VehicleService,
     private toastr : ToastrService,
     private router : Router

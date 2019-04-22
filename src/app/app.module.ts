@@ -28,7 +28,7 @@ import { TokenInterceptor } from './core/interceptors/token.interceptor';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ComponentsModule
+    //ComponentsModule
   ],
   providers: [
     {
