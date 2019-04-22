@@ -8,22 +8,22 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService {
-  token : string;
+  token: string;
 
   constructor(
 
-    private toastr : ToastrService,
-    private router : Router,
-    private http : HttpClient
+    private toastr: ToastrService,
+    private router: Router,
+    private http: HttpClient
   ) { }
 
-  signUp(email: string, password : string) {
+  signUp(email: string, password: string) {
     const user = {
       username: email,
       password: password,
     }
 
-    this.http.post(`${env.BASE_URL}/user/${env.APP_KEY}/_lookup`, user).toPromise().then(res => {
+    this.http.post(`${env.BASE_URL}/user/${env.APP_KEY}`, user).toPromise().then(res => {
       this.toastr.success('Signed Up', 'Success');
       this.router.navigate(['/authentication/signin']);
     }).catch(err => {
@@ -37,11 +37,11 @@ export class AuthService {
     localStorage.setItem('token', res['_kmd']['authtoken']);
     localStorage.setItem('userId', res['_id']);
     if (res['_kmd'].roles && res['_kmd'].roles.length > 0) {
-        localStorage.setItem('isAdmin', "true")
+      localStorage.setItem('isAdmin', "true")
     }
   }
 
-  signIn(email : string, password : string) {
+  signIn(email: string, password: string) {
     const user = {
       username: email,
       password: password,
@@ -68,24 +68,24 @@ export class AuthService {
   }
 
   hasVehicle(): boolean {
-    if(localStorage.getItem('vehicle')) {
+    if (localStorage.getItem('vehicle')) {
       return true;
     } else {
       return false;
     }
   }
 
-  isAuthenticated() : boolean {
+  isAuthenticated(): boolean {
     return this.token != null;
   }
 
   isAdmin(): boolean {
-    if(localStorage.getItem('isAdmin')) {
+    if (localStorage.getItem('isAdmin')) {
       return true;
     } else {
       return false;
     }
   }
 
-  
+
 }

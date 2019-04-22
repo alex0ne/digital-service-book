@@ -4,10 +4,10 @@
       <small class="badge badge-warning float-left" *ngIf='user._kmd.roles && user._kmd.roles.length > 0'>
         admin
       </small>
-      <button type="button" class="btn btn-outline-danger btn-sm">Delete</button>
+      <button type="button" (click)="deleteUser(user._id)" class="btn btn-outline-danger btn-sm">Delete</button>
     </div>
-<!--     <img src="https://s3-ap-northeast-1.amazonaws.com/stand-site/icon_user_placeholder.png" width="50px" class="card-img-top"
-      alt="user image placeholder"> -->
+    <img src="https://s3-ap-northeast-1.amazonaws.com/stand-site/icon_user_placeholder.png" width="50px" class="card-img-top"
+      alt="user image placeholder">
     <div class="card-body">
       <p class="card-text">
         {{user.username}} 

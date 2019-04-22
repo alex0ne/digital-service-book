@@ -5,7 +5,7 @@ import {
     HttpEvent,
     HttpInterceptor
 } from '@angular/common/http';
-import {tap} from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { environment as env } from '../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { AuthService } from '../services/auth.service';
@@ -15,16 +15,16 @@ export class TokenInterceptor implements HttpInterceptor {
 
     constructor(
         private authService: AuthService
-    ){}
+    ) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
         if (req.url.endsWith(`/user/${env.APP_KEY}`) || req.url.endsWith('/login')) {
-            if(req.method === 'GET') {
+            if (req.method === 'GET' || req.method === 'DELETE') {
                 req = req.clone({
                     setHeaders: {
                         'Authorization': `Basic ${btoa(`${env.APP_KEY}:${env.MASTER_SECRET}`)}`,
                     }
-                })                
+                })
             } else {
                 req = req.clone({
                     setHeaders: {
@@ -43,7 +43,7 @@ export class TokenInterceptor implements HttpInterceptor {
         return next.handle(req)
             .pipe(
                 tap((event: HttpEvent<any>) => {
-                    if(event instanceof HttpResponse && req.url.endsWith('login')) {
+                    if (event instanceof HttpResponse && req.url.endsWith('login')) {
                         this.authService.saveUserInfo(event.body)
                     }
                 })
