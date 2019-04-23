@@ -5,6 +5,7 @@ import { AddLogComponent } from './add-log/add-log.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from '../core/guards/auth.guard';
 import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
+import { EditVehicleComponent } from './edit-vehicle/edit-vehicle.component';
 import { MyVehicleComponent } from './my-vehicle/my-vehicle.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 
@@ -16,7 +17,7 @@ const routes: Routes = [
   { path: 'add-vehicle', component: AddVehicleComponent },
   { path: 'my-vehicle', component: MyVehicleComponent },
   { path: 'admin', component: AdminPageComponent },
-  // {path: 'edit/:id', component: EditVehicleComponent},
+  { path: 'edit-vehicle/:id', component: EditVehicleComponent},
 ]
 
 @NgModule({

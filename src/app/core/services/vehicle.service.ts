@@ -13,8 +13,11 @@ export class VehicleService {
   constructor( private http: HttpClient) { }
 
   addVehicle(body: Vehicle){
-    console.log(body);
     return this.http.post(`${env.BASE_URL}/appdata/${env.APP_KEY}/vehicles`, body)
+  }
+
+  editVehicle(body: Object, id) {
+    return this.http.put(`${env.BASE_URL}/appdata/${env.APP_KEY}/vehicles/${id}`, body).toPromise()
   }
 
   async getMyVehiicle () {

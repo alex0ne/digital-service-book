@@ -1,0 +1,39 @@
+<div *ngIf="authService.isAuthenticated() && vehicle" >
+  <form #form="ngForm" (ngSubmit)="update()">
+      <div class="form-group">
+        <label for="make">Make</label>
+        <input type="text" class="form-control" name="make" id="make" value="{{vehicle.make}}" placeholder="Enter vehicle make here..."
+        required
+        [(ngModel)]="vehicle.make"
+        >
+      </div>
+      <div class="form-group">
+        <label for="model">Model</label>
+        <input type="text" class="form-control" name="model" id="model" value="{{vehicle.model}}" placeholder="Enter vehicle model here..."
+        required
+        [(ngModel)]="vehicle.model"
+        >
+      </div>
+      <div class="form-group">
+        <label for="productionYear">Production Year</label>
+        <input type="number" class="form-control" name="productionYear" id="productionYear" value="{{vehicle.productionYear}}" placeholder="Enter production year here..."
+        required
+        [(ngModel)]="vehicle.productionYear"
+        >
+      </div>
+      <div class="form-group">
+        <label for="millage">Millage</label>
+        <input type="number" class="form-control" name="millage" id="millage" value="{{vehicle.millage}}" placeholder="millage"
+        required
+        [(ngModel)]="vehicle.millage"
+        >
+      </div>
+      <div class="form-group">
+        <label for="imageUrl">Image</label>
+        <input type="url" class="form-control" name="imageUrl" id="imageUrl" value="{{vehicle.imageUrl}}" placeholder="Enter image link here..."
+        [(ngModel)]="vehicle.imageUrl"
+        >
+      </div>
+      <button class="btn btn-primary" [disabled]="form.invalid" type="submit">Save</button>
+    </form>
+</div>

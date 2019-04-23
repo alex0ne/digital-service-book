@@ -4,6 +4,7 @@ export class Vehicle {
         public model: string,
         public productionYear: string,
         public millage: number,
-        public imageUrl: string
+        public imageUrl: string,
+        public _id?: string,
     ) { }
 }

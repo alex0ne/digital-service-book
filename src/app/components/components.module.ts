@@ -8,6 +8,7 @@ import { AddLogComponent } from './add-log/add-log.component';
 import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
 import { MyVehicleComponent } from './my-vehicle/my-vehicle.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
+import { EditVehicleComponent } from './edit-vehicle/edit-vehicle.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
     AddLogComponent,
     AddVehicleComponent,
     MyVehicleComponent,
-    AdminPageComponent, 
+    AdminPageComponent,
+    EditVehicleComponent, 
   ]
 })
 export class ComponentsModule { }
