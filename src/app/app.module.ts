@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './components/auth/auth.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
-import { ComponentsModule } from './components/components.module';
+//import { ComponentsModule } from './components/components.module';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
 
 @NgModule({

@@ -1,8 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { AuthService } from '../../core/services/auth.service';
 import { VehicleService } from 'src/app/core/services/vehicle.service';
 import { Vehicle } from 'src/app/core/models/vehicle';
 

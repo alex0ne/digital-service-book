@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AdminService } from 'src/app/core/services/admin.service';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin-page',

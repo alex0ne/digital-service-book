@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ComponentsRouting } from './components-routing';
-import { HomeComponent } from './home/home.component';
 import { ListLogsComponent } from './list-logs/list-logs.component';
 import { AddLogComponent } from './add-log/add-log.component';
 import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
@@ -17,7 +16,6 @@ import { EditVehicleComponent } from './edit-vehicle/edit-vehicle.component';
     ComponentsRouting
   ],
   declarations: [
-    HomeComponent,
     ListLogsComponent,
     AddLogComponent,
     AddVehicleComponent,

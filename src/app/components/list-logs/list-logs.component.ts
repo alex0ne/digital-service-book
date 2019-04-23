@@ -16,7 +16,6 @@ export class ListLogsComponent implements OnInit {
   constructor(
     private carHistoryService : CarHistoryService,
     private toastr : ToastrService,
-    private router : Router
   ) { }
 
   delete(id){
