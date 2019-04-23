@@ -7,6 +7,7 @@
         <div class="card" id="event-log">
           <div class="card-header">
             {{event.eventDate}}
+            <button type="button" (click)="delete(event._id)" class="btn float-right btn-outline-danger btn-sm"><span class="oi oi-x"></span></button>
           </div>
           <div class="card-body">
             <blockquote class="blockquote mb-0">

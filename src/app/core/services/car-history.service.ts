@@ -23,7 +23,8 @@ export class CarHistoryService {
             events.push(new EventLog(
               res[id].eventDate, 
               res[id].eventType,
-              res[id].millage
+              res[id].millage,
+              res[id]._id,
               ))
           }          
           return events;
@@ -31,23 +32,14 @@ export class CarHistoryService {
       
     }
 
-    addEvent (body : EventLog) {
-      console.log(body);
-      
+    addEvent (body : EventLog) {      
       return this.http.post(`${env.BASE_URL}/appdata/${env.APP_KEY}/ServiceLogs`, body)
     }
 
-    // viewDetails(id : string) {
-    //     return this.http.get<ListTasks>(`${baseUrl}${id}/.json`)
-    // } 
-
-    // editTask(body) {
-    //     return this.http.patch(`${baseUrl}/.json`, body)
-
-    // }
-
-    // deleteTask(id : string) {
-    //    return this.http.delete(`${baseUrl}${id}/.json`)
-    // }
+    deleteEvent(id : string) {
+      console.log(id);
+      
+      return this.http.delete(`${env.BASE_URL}/appdata/${env.APP_KEY}/ServiceLogs/${id}`)
+    }
 
 }
