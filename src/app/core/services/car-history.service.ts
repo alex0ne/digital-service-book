@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { map } from 'rxjs/operators'
-//import { CarHistory } from './models/car-history.model';
 import { EventLog } from '../models/event-log';
 import { environment as env} from '../../../environments/environment'
 
@@ -36,9 +35,7 @@ export class CarHistoryService {
       return this.http.post(`${env.BASE_URL}/appdata/${env.APP_KEY}/ServiceLogs`, body)
     }
 
-    deleteEvent(id : string) {
-      console.log(id);
-      
+    deleteEvent(id : string) {      
       return this.http.delete(`${env.BASE_URL}/appdata/${env.APP_KEY}/ServiceLogs/${id}`)
     }
 

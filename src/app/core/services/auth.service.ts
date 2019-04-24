@@ -41,9 +41,9 @@ export class AuthService {
     }
   }
 
-  signIn(email: string, password: string) {
+  signIn(username: string, password: string) {
     const user = {
-      username: email,
+      username: username,
       password: password,
     }
 
@@ -53,7 +53,6 @@ export class AuthService {
       this.router.navigate(['/components/my-vehicle']);
     }).catch(err => {
       this.toastr.error(err.error.description, 'Error');
-      console.log(err);
     })
   }
 

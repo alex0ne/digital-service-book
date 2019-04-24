@@ -22,5 +22,9 @@
   </div>
 </div>
 <div *ngIf="!vehicle">
-  <p>No vehicle found. <a routerLink="/components/add-vehicle">Please, add vehicle info!</a></p>
+  <!-- <p>No vehicle found. <a routerLink="/components/add-vehicle">Please, add vehicle info!</a></p> -->
+  <p>
+    <a routerLink="/components/add-vehicle">Please, add vehicle info!</a>
+  </p>
+  <a routerLink="/components/add-vehicle" class="btn btn-outline-primary">Add Vehicle</a>
 </div>
