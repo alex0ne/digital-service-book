@@ -3,7 +3,7 @@ export class Vehicle {
         public make: string,
         public model: string,
         public productionYear: string,
-        public millage: number,
+        public mileage: number,
         public imageUrl: string,
         public _id?: string,
     ) { }

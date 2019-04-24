@@ -28,7 +28,7 @@ export class EditVehicleComponent implements OnInit {
       make: this.vehicle.make, 
       model: this.vehicle.model, 
       productionYear: this.vehicle.productionYear,
-      millage: this.vehicle.millage,
+      mileage: this.vehicle.mileage,
       imageUrl: this.vehicle.imageUrl
     }
     await this.vehicleService.editVehicle(body, this.vehicle._id);

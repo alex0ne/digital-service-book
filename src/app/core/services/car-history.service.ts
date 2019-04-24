@@ -23,7 +23,7 @@ export class CarHistoryService {
             events.push(new EventLog(
               res[id].eventDate, 
               res[id].eventType,
-              res[id].millage,
+              res[id].mileage,
               res[id]._id,
               ))
           }          
