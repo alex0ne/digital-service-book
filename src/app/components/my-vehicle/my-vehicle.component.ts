@@ -15,6 +15,13 @@ export class MyVehicleComponent implements OnInit {
     private vehicleService: VehicleService,
   ) { }
 
+  hasVehicle() {
+    if (localStorage.getItem('vehicle')) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   async ngOnInit() {
     await this.vehicleService.getMyVehiicle().then(res => {

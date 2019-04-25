@@ -1,5 +1,5 @@
+<a *ngIf="hasVehicle()" routerLink="/components/add-log" class="btn btn-outline-primary">Add Service</a>
 <div *ngIf="vehicle">
-  <a routerLink="/components/add-log" class="btn btn-outline-primary">Add Service</a>
   <br><br/>
   <div class="card mb-3" style="max-width: 720px;" id="car-info">
     <div class="row no-gutters">
@@ -21,8 +21,7 @@
     </div>
   </div>
 </div>
-<div *ngIf="!vehicle">
-  <!-- <p>No vehicle found. <a routerLink="/components/add-vehicle">Please, add vehicle info!</a></p> -->
+<div *ngIf="!hasVehicle()">
   <p>
     <a routerLink="/components/add-vehicle">Please, add vehicle info!</a>
   </p>
