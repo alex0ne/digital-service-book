@@ -10,6 +10,7 @@ import { Vehicle } from 'src/app/core/models/vehicle';
 export class MyVehicleComponent implements OnInit {
 
   vehicle: Vehicle;
+  vehicles: Vehicle[];
 
   constructor(
     private vehicleService: VehicleService,
@@ -25,11 +26,15 @@ export class MyVehicleComponent implements OnInit {
 
   async ngOnInit() {
     await this.vehicleService.getMyVehiicle().then(res => {
-      if (res) {
+      if (res) {        
         this.vehicle = res;
         localStorage.setItem("vehicle", res.make)
       }
     });
+
+    await this.vehicleService.getMyVehiicles().then(res => {
+      this.vehicles = res;
+    })
   }
 
 }

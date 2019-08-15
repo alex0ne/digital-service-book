@@ -24,4 +24,16 @@ export class VehicleService {
     await this.http.get<Vehicle>(`${env.BASE_URL}/appdata/${env.APP_KEY}/vehicles?query={"_acl.creator":"${localStorage.getItem('userId')}"}`).toPromise().then((res) => { vehicle = res[0]})
     return vehicle;
   }
+ 
+  async getMyVehiicles () {
+    let myVehicles: Vehicle[];
+    await this.http.get<Vehicle[]>(`${env.BASE_URL}/appdata/${env.APP_KEY}/vehicles?query={"_acl.creator":"${localStorage.getItem('userId')}"}`).toPromise().then((res) => { myVehicles = res})
+    return myVehicles;
+  }
+
+  async getVehiicleById (id) {
+    let vehicle: Vehicle;
+    await this.http.get<Vehicle>(`${env.BASE_URL}/appdata/${env.APP_KEY}/vehicles?query={"_acl.creator":"${localStorage.getItem('userId')}", "_id":"${id}"}`).toPromise().then((res) => { vehicle = res[0]})
+    return vehicle;
+  }
 }

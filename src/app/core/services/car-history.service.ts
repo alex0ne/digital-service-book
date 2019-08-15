@@ -25,6 +25,7 @@ export class CarHistoryService {
               res[id].mileage,
               res[id].price,
               res[id]._id,
+              res[id].vehicleID
               ))
           }          
           return events;

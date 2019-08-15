@@ -3,6 +3,8 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { EventLog } from '../../core/models/event-log';
 import { CarHistoryService } from 'src/app/core/services/car-history.service';
+import { VehicleService } from 'src/app/core/services/vehicle.service';
+import { Vehicle } from 'src/app/core/models/vehicle';
 
 @Component({
   selector: 'app-add-log',
@@ -12,13 +14,25 @@ import { CarHistoryService } from 'src/app/core/services/car-history.service';
 export class AddLogComponent implements OnInit {
 
   bindingModel : EventLog
+  vehicles: Vehicle[]
 
   constructor(
+    private vehicleService: VehicleService,
     private carHistoryService : CarHistoryService,
     private toastr : ToastrService,
     private router : Router
   ) {
     this.bindingModel = new EventLog('', '', 0, 0);
+  }
+
+  async hasMultipleVehicles() {
+    await this.vehicleService.getMyVehiicles().then(res => {
+      if (res.length > 1) {
+        return true
+      } else {
+        return false
+      }
+    })
   }
 
   create() {
@@ -29,7 +43,10 @@ export class AddLogComponent implements OnInit {
       })
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.vehicleService.getMyVehiicles().then(res => {
+      this.vehicles = res;
+    })
   }
 
 }

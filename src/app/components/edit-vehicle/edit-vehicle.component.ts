@@ -3,7 +3,7 @@ import { VehicleService } from 'src/app/core/services/vehicle.service';
 import { Vehicle } from 'src/app/core/models/vehicle';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-edit-vehicle',
@@ -18,7 +18,8 @@ export class EditVehicleComponent implements OnInit {
     public authService: AuthService,
     private vehicleService: VehicleService,
     private toastr : ToastrService,
-    private router : Router
+    private router : Router,
+    private route: ActivatedRoute
   ) { 
     this.vehicle = new Vehicle('','','', 0, '', '')
   }
@@ -37,12 +38,14 @@ export class EditVehicleComponent implements OnInit {
   }
 
   async ngOnInit() {
-    await this.vehicleService.getMyVehiicle().then(res => {
-      if (res) {
-        this.vehicle = res;
-        localStorage.setItem("vehicle", res.make)
-      }
+    await this.route.paramMap.subscribe(params => {
+      this.vehicle._id = params.get("id");
     });
+  
+    await this.vehicleService.getVehiicleById(this.vehicle._id).then(res => {
+      this.vehicle = res;
+      localStorage.setItem("vehicle", res.make)
+    })
   }
 
 }
