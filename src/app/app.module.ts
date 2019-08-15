@@ -12,6 +12,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 //import { ComponentsModule } from './components/components.module';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { TokenInterceptor } from './core/interceptors/token.interceptor';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     //ComponentsModule
   ],
   providers: [
