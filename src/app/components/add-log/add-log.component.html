@@ -1,7 +1,7 @@
 <form #form="ngForm" (ngSubmit)="create()">
 
   <div class="form-group">
-    <label for="eventDate">Date</label>
+    <label for="eventDate">Date / Дата</label>
     <input type="date" class="form-control" name="eventDate" id="eventDate" placeholder="Enter event date (e.g. 10.02.2015)"
     required
     [(ngModel)]="bindingModel.eventDate"
@@ -9,17 +9,24 @@
   
   </div>
   <div class="form-group">
-    <label for="eventType">Description</label>
+    <label for="eventType">Description / Описание</label>
     <input type="text" class="form-control" name="eventType" id="eventType" placeholder="Enter event type and description..."
     required
     [(ngModel)]="bindingModel.eventType"
     >
   </div>
   <div class="form-group">
-    <label for="mileage">Mileage</label>
+    <label for="mileage">Mileage / Пробег</label>
     <input type="number" class="form-control" name="mileage" id="mileage" placeholder="Mileage"
     required
     [(ngModel)]="bindingModel.mileage"
+    >
+  </div>
+  <div class="form-group">
+    <label for="price">Price / Цена</label>
+    <input type="number" class="form-control" name="price" id="price" placeholder="Price"
+    required
+    [(ngModel)]="bindingModel.price"
     >
   </div>
   <button class="btn btn-primary" [disabled]="form.invalid" type="submit">Save</button>

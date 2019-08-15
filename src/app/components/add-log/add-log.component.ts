@@ -18,7 +18,7 @@ export class AddLogComponent implements OnInit {
     private toastr : ToastrService,
     private router : Router
   ) {
-    this.bindingModel = new EventLog('', '', 0);
+    this.bindingModel = new EventLog('', '', 0, 0);
   }
 
   create() {

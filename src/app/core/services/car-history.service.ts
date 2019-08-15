@@ -23,6 +23,7 @@ export class CarHistoryService {
               res[id].eventDate, 
               res[id].eventType,
               res[id].mileage,
+              res[id].price,
               res[id]._id,
               ))
           }          
