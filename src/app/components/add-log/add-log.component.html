@@ -34,7 +34,9 @@
     <select class="form-control" id="vehicleID" name="vehicleID"
       required
       [(ngModel)]="bindingModel.vehicleID">
-      <option *ngFor="let vehicle of vehicles" [value]="vehicle._id">{{vehicle.make}} {{vehicle.model}} {{vehicle.productionYear}}</option>
+      <option *ngFor="let vehicle of vehicles" [value]="vehicle._id">
+        {{vehicle.make}} {{vehicle.model}} {{vehicle.productionYear}}
+      </option>
     </select>
   </div>
 

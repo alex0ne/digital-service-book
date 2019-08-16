@@ -1,4 +1,4 @@
-<div *ngIf="vehicle">
+<div *ngIf="vehicles">
   <a routerLink="/components/add-log" class="btn btn-outline-primary">Add Service</a>
   <br><br/>
   <div *ngFor="let vehicle of vehicles ">
@@ -23,7 +23,7 @@
     </div>
   </div>
 </div>
-<div *ngIf="!vehicle">
+<div *ngIf="!vehicles">
   <p>
     <a routerLink="/components/add-vehicle">Please, add vehicle info!</a>
   </p>

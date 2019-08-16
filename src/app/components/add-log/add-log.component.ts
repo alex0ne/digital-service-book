@@ -13,40 +13,33 @@ import { Vehicle } from 'src/app/core/models/vehicle';
 })
 export class AddLogComponent implements OnInit {
 
-  bindingModel : EventLog
-  vehicles: Vehicle[]
+  bindingModel: EventLog;
+  vehicles: Vehicle[];
 
   constructor(
     private vehicleService: VehicleService,
-    private carHistoryService : CarHistoryService,
-    private toastr : ToastrService,
-    private router : Router
+    private carHistoryService: CarHistoryService,
+    private toastr: ToastrService,
+    private router: Router
   ) {
     this.bindingModel = new EventLog('', '', 0, 0);
   }
 
-  async hasMultipleVehicles() {
-    await this.vehicleService.getMyVehiicles().then(res => {
-      if (res.length > 1) {
-        return true
-      } else {
-        return false
-      }
-    })
+  getVehicle(id) {
+    return this.vehicles.find(item => item._id === id);
   }
 
   create() {
     this.carHistoryService.addEvent(
       this.bindingModel).subscribe(() => {
-        this.toastr.success('Maintenance log created successfully!')
-        this.router.navigate(['/components/list-logs'])
-      })
+        this.toastr.success('Maintenance log created successfully!');
+        this.router.navigate(['/components/list-logs']);
+      });
   }
 
   async ngOnInit() {
     await this.vehicleService.getMyVehiicles().then(res => {
       this.vehicles = res;
-    })
+    });
   }
-
 }
