@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'my-vehicle', component: MyVehicleComponent },
   { path: 'admin', component: AdminPageComponent },
   { path: 'edit-vehicle/:id', component: EditVehicleComponent},
+  { path: 'list-service-logs/:id', component: ListLogsComponent},
 ]
 
 @NgModule({
