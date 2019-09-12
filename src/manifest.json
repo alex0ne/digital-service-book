@@ -1,11 +1,11 @@
 {
-  "name": "digital-service-book",
-  "short_name": "digital-service-book",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "AutoHub",
+  "short_name": "AutoHub",
+  "theme_color": "#343a40",
+  "background_color": "#343a40",
   "display": "standalone",
   "scope": "/",
-  "start_url": "/",
+  "start_url": "/components/my-vehicle",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
